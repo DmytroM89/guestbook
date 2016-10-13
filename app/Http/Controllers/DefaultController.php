@@ -21,7 +21,8 @@ class DefaultController extends Controller
                 'username' => 'required|max:100',
                 'email' => 'required|max:150',
                 'msg' => 'required|max:3000',
-                'img' => 'mimes:jpeg,bmp,png'
+                'img' => 'mimes:jpeg,bmp,png',
+                'g-recaptcha-response' => 'required|recaptcha'
             ]);
             
             if ($validator->fails()) {

@@ -18,7 +18,9 @@
         
         <label for="inputAvatar" class="sr-only">Avatar</label>
         <input type="file" id="inputAvatar" name="img" class="form-control">
-        
+
+          {!! Recaptcha::render() !!}
+
         <label for="inputMsg" class="sr-only">URL</label>
         <textarea name="msg" class="form-control" id="inputMsg" cols="30" rows="10" placeholder="Enter your message">{{ old('msg') }}</textarea>
           
