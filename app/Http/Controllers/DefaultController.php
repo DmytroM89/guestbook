@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Validator;
 
+use App\Models\Messages;
+
 class DefaultController extends Controller
 {
     public function index(Request $request)
@@ -14,6 +16,7 @@ class DefaultController extends Controller
         $success = '';
         if ($request->isMethod('post')) {
             $request->flash();
+            $data = $request->all();
             $validator = Validator::make($request->all(), [
                 'username' => 'required|max:100',
                 'email' => 'required|max:150',
@@ -24,10 +27,21 @@ class DefaultController extends Controller
             if ($validator->fails()) {
                 return view('default.index', ['errors' => $validator->errors()->all()]);
             }
-            
+
+            $messages = new Messages();
+            $messages->name = $data['username'];
+            $messages->email = $data['email'];
+            $messages->msg = $data['msg'];
+            $messages->url = $data['url'];
+
             if ($request->hasFile('img')) {
                 $request->file('img')->move('upload', $request->file('img')->getClientOriginalName());
+                $messages->img = $request->file('img')->getClientOriginalName();
             }
+
+            $messages->save();
+
+
             $success = 'Form sended successfull';
         }
         
