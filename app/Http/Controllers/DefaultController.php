@@ -45,8 +45,10 @@ class DefaultController extends Controller
 
             $success = 'Form sended successfull';
         }
+
+        $allMessages = Messages::all();
         
-        return view('default.index', ['success' => $success]);
+        return view('default.index', ['success' => $success, 'messages' => $allMessages]);
     }
     
     

@@ -38,4 +38,25 @@
         @endif
       </form>
     </div> <!-- /container -->
+    <hr>
+    @if(count($messages) > 0)
+
+    @foreach($messages as $msg)
+
+        <div class="row">
+            <div class="col-md-1">
+                @if($msg->img)
+                <img class="img-responsive img-circle" src="/upload/{{ $msg->img }}" alt="{{ $msg->name }}">
+                @endif
+            </div>
+            <div class="col-md-11">
+                <p>{{ $msg->name }}</p>
+                <p>{{ $msg->msg }}</p>
+            </div>
+        </div>
+    @endforeach
+    @endif
 @endsection
+
+
+{{--http://jsfiddle.net/beyondsanity/HgDZ9/--}}

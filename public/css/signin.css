@@ -46,3 +46,7 @@ body {
 textarea {
   margin-top: 10px;
 }
+
+hr {
+  border: 1px solid #333;
+}
