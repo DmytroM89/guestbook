@@ -46,7 +46,7 @@ class DefaultController extends Controller
             $success = 'Form sended successfull';
         }
 
-        $allMessages = Messages::all();
+        $allMessages = Messages::orderBy('created_at', 'desc')->get();
         
         return view('default.index', ['success' => $success, 'messages' => $allMessages]);
     }
