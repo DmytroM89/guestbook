@@ -14,7 +14,7 @@ class Book implements Top
 
         $top = DB::table('transactions')
             ->join('books', 'books.id', '=', 'transactions.book_id')
-            ->select('books.id', 'books.title', 'transactions.created_at', DB::raw('count(books.id) as count'));
+            ->select('books.id', 'books.title as name', 'transactions.created_at', DB::raw('count(books.id) as count'));
 
         switch ($period) {
             case 'week': $subPeriod = Carbon::now()->subWeek();

@@ -18,7 +18,7 @@ class TopController extends Controller
         return view('top.index', [
             'top' => $top,
             'period' => $period,
-            'books' => $result
+            'result' => $result
         ]);
     }
 }

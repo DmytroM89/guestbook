@@ -16,10 +16,10 @@
             </div>
             <hr>
 
-            @if(is_array($books))
+            @if(is_array($result))
                 <ol>
-                @foreach($books as $book)
-                    <li>{{ $book->title }}</li>
+                @foreach($result as $r)
+                    <li>{{ $r->name }}</li>
                 @endforeach
                 </ol>
             @endif
