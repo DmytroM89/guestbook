@@ -13,3 +13,5 @@
 
 Route::get('/', "DefaultController@index");
 Route::post('/', "DefaultController@index");
+
+Route::get('/top/{top}/{period?}', "TopController@index");

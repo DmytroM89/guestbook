@@ -2,7 +2,6 @@
 
 
 @section('content')
-    <div class="container">
         <div class="row">
             <div class="col-md-6">
               <form class="form-signin" method="post" enctype="multipart/form-data">
@@ -61,7 +60,6 @@
             @endif
             </div>
         </div>
-    </div> <!-- /container -->
 
 @endsection
 
