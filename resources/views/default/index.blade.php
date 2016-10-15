@@ -46,12 +46,12 @@
 
             @foreach($messages as $msg)
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-3">
                     @if($msg->img)
                         <img class="img-responsive img-circle" src="/upload/{{ $msg->img }}" alt="{{ $msg->name }}">
                     @endif
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-9">
                     <h3>{{ $msg->name }}</h3>
                     <p>{{ $msg->msg }}</p>
                 </div>
