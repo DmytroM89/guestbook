@@ -16,6 +16,14 @@
             </div>
             <hr>
 
+            @if(is_array($books))
+                <ol>
+                @foreach($books as $book)
+                    <li>{{ $book->title }}</li>
+                @endforeach
+                </ol>
+            @endif
+
         </div>
 
     </div>
