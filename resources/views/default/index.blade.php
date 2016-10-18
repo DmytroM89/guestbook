@@ -58,6 +58,7 @@
             <hr>
             @endforeach
             @endif
+            {{ $messages->links() }}
             </div>
         </div>
 

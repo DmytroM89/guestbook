@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -46,7 +47,7 @@ class DefaultController extends Controller
             $success = 'Form sended successfull';
         }
 
-        $allMessages = Messages::orderBy('created_at', 'desc')->get();
+        $allMessages = Messages::orderBy('created_at', 'desc')->paginate(3);
         
         return view('default.index', ['success' => $success, 'messages' => $allMessages]);
     }
