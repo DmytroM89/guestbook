@@ -15,6 +15,7 @@ class CreateAutorsTable extends Migration
         Schema::create('autors', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->timestamps('created_at');
         });
     }
 

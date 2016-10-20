@@ -8,5 +8,4 @@ class Books extends Model
 {
     protected $table = 'books';
     protected $guarded = [''];
-    protected $timestamps = false;
 }

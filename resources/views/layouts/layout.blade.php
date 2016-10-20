@@ -32,6 +32,7 @@
         <ul class="nav navbar-nav">
           <li><a href="{{ url('/') }}">Главная</a></li>
           <li><a href="{{ url('/top/books/week') }}">TOP</a></li>
+          <li><a href="{{ url('/authors') }}">Авторы</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -43,6 +44,10 @@
 
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('bower_components/angular/angular.js') }}"></script>
+    <script src="{{ asset('bower_components/angular-route/angular-route.js') }}"></script>
+    <script src="{{ asset('js/angular/app.js') }}"></script>
+    <script src="{{ asset('js/angular/controllers/authors.js') }}"></script>
+<!--    <script src="{{ asset('js/main.js') }}"></script>-->
   </body>
 </html>
