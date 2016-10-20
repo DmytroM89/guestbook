@@ -15,9 +15,9 @@ class AuthorsController extends Controller
         return response()->json($authors);
     }
 
-    public function insert(Requests $request)
+    public function insert(Request $request)
     {
-        $params = $request->json->all();
+        $params = $request->json()->all();
         return response()->json($params);
     }
 }

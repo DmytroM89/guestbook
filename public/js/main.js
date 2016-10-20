@@ -10,7 +10,7 @@ $('.getlist').click(function () {
 
 
 $('.addAuthor').click(function () {
-    $.post('/api/author/new', { authorName: $('#newAuthor').val() }, function (res) {
+    $.post('/api/author/new', { authorName: $('#newAuthor').val(), _token: $('meta[name="_token"]').attr('content') }, function (res) {
         console.log(res);
     });
 });
