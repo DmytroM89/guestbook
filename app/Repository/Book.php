@@ -8,7 +8,7 @@ use App\Contracts\Top;
 
 class Book implements Top
 {
-    public function top($period)
+    public function top($period)   //%period = week
     {
         $subPeriod = '';
 
@@ -16,15 +16,10 @@ class Book implements Top
             ->join('books', 'books.id', '=', 'transactions.book_id')
             ->select('books.id', 'books.title as name', 'transactions.created_at', DB::raw('count(books.id) as count'));
 
-        switch ($period) {
-            case 'week': $subPeriod = Carbon::now()->subWeek();
-            break;
-            case 'month': $subPeriod = Carbon::now()->subMonth();
-            break;
-            case 'year': $subPeriod = Carbon::now()->subYear();
-            break;
-        }
+        
+        $this->switcher($period);
 
+        
         if(!empty($period)) {
             $top->whereRaw('transactions.created_at >= ?', [$subPeriod]);
         }
@@ -35,5 +30,19 @@ class Book implements Top
 
         $list = $top->get();
         return $list;
+    }
+    
+    
+    //логика фильтра
+    public function switcher ($period) {
+        switch ($period) {
+            case 'week': $subPeriod = Carbon::now()->subWeek();   //$subPeriod = subweek
+                break;
+            case 'month': $subPeriod = Carbon::now()->subMonth();
+                break;
+            case 'year': $subPeriod = Carbon::now()->subYear();
+                break;
+        }
+        return $subPeriod;
     }
 }

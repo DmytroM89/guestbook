@@ -1,4 +1,4 @@
-guestbook.controller('authorsCtrl', function($scope, $http){
+ guestbook.controller('authorsCtrl',function($scope, $http){
     $http.get('/api/authors').success(function(res){
         $scope.authors = res;
     });

@@ -15,20 +15,36 @@ class DefaultController extends Controller
     public function index(Request $request)
     {
         $success = '';
+
+
+        //Пост
         if ($request->isMethod('post')) {
             $request->flash();
             $data = $request->all();
-            $validator = Validator::make($request->all(), [
+
+//            dd($data);
+
+            $this->validate($request, [
                 'username' => 'required|max:100',
                 'email' => 'required|max:150',
                 'msg' => 'required|max:3000',
                 'img' => 'mimes:jpeg,bmp,png',
                 'g-recaptcha-response' => 'required|recaptcha'
             ]);
-            
-            if ($validator->fails()) {
-                return view('default.index', ['errors' => $validator->errors()->all()]);
-            }
+
+
+
+//            $validator = Validator::make($request->all(), [
+//                'username' => 'required|max:100',
+//                'email' => 'required|max:150',
+//                'msg' => 'required|max:3000',
+//                'img' => 'mimes:jpeg,bmp,png',
+//                'g-recaptcha-response' => 'required|recaptcha'
+//            ]);
+//
+//            if ($validator->fails()) {
+//                return view('default.index', ['errors' => $validator->errors()->all()]);
+//            }
 
             $messages = new Messages();
             $messages->name = $data['username'];
@@ -46,6 +62,8 @@ class DefaultController extends Controller
 
             $success = 'Form sended successfull';
         }
+//конец поста
+
 
         $allMessages = Messages::orderBy('created_at', 'desc')->paginate(3);
         

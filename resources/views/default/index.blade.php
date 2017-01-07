@@ -26,18 +26,36 @@
                 <textarea name="msg" class="form-control" id="inputMsg" cols="30" rows="10" placeholder="Enter your message">{{ old('msg') }}</textarea>
 
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Send Message</button>
-                @if(count($errors) > 0)
-                    <div class="alert alert-danger">
-                       @foreach($errors as $error)
-                        <p>{{ $error }}</p>
-                        @endforeach
-                    </div>
-                @elseif ($success)
-                    <div class="alert alert-success">
-                        <p>{{ $success }}</p>
-                    </div>
-                @endif
-                </form>
+
+
+
+                  {{----}}
+                {{--@if(count($errors) > 0)--}}
+                    {{--<div class="alert alert-danger">--}}
+                       {{--@foreach($errors as $error)--}}
+                        {{--<p>{{ $error }}</p>--}}
+                        {{--@endforeach--}}
+                    {{--</div>--}}
+                {{--@elseif ($success)--}}
+                    {{--<div class="alert alert-success">--}}
+                        {{--<p>{{ $success }}</p>--}}
+                    {{--</div>--}}
+                {{--@endif--}}
+
+
+                  @if (count($errors) > 0)
+                      <div class="alert alert-danger">
+                          <ul>
+                              @foreach ($errors->all() as $error)
+                                  <li>{{ $error }}</li>
+                              @endforeach
+                          </ul>
+                      </div>
+                  @endif
+
+
+
+              </form>
             </div>
 
             <div class="col-md-6">

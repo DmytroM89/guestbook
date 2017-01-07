@@ -9,7 +9,6 @@ class TopFactory
 {
     public function factoryMethod($type)
     {
-
         switch ($type) {
             case 'books': return new Book();
             break;
